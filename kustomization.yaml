@@ -1,0 +1,17 @@
+# When updating the version of BigBang, make sure to update
+#   both the bases reference and the GitRepository reference
+resources:
+  - git::https://repo1.dsop.io/platform-one/big-bang/bigbang.git/base/flux?ref=1.36.0
+  - git::https://repo1.dsop.io/platform-one/big-bang/bigbang.git/base?ref=1.36.0
+  - git::https://github.com/defenseunicorns/domain-manager.git/base?ref=main
+  - private-registry.yaml.enc
+secretGenerator:
+  - name: domain-manager
+    behavior: merge
+    files:
+    - values.yaml=values.yaml
+  - name: common-bb
+    behavior: merge
+    files:
+      - values.yaml=values.yaml
+

@@ -1,0 +1,5 @@
+---
+creation_rules:
+  - encrypted_regex: ^(data|stringData|credentials|password)$
+    path_regex: ".*"
+    kms: arn:aws:kms:us-east-1:950698127059:key/a2033cc0-fa97-41ea-9f33-d03266745335
